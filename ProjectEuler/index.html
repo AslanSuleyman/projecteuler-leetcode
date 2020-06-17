@@ -104,7 +104,6 @@
                     if (eventNum.length > 10) {
                         document.getElementById("getanswer2").innerHTML = 'Sonuç : ' + eventNum.slice(0, 10) + ' ....';
                     }
-
                     break;
                 case 2:
                     let secondcode = "arr =  [ 'aslan', 'suleyman' , 'test'] <br>   arr.unshift(0); <br>   arr = arr.sort();<br>  function nameScoreCalc(word, i) {<br>   let sum = 0;<br> let score;<br>let alfabe = ['' , 'a','b','c','d','e','f', 'g','i','j','k','l','m','n','o' <br>,'p','q','r','s','t','u','v','w','x','y','z']; <br> for (let i = 0; i < word.length; i++) { <br>   sum+= alpha.indexOf(word[i].toLowerCase()); <br>  }<br> let total = 0;<br>for (let i = 0; i < arr.length; i++) { <br>   total += nameScoreCalc(arr[i], i) <br>  } "
@@ -126,7 +125,6 @@
                         total += nameScoreCalc(arr[i], i)
                     }
                     document.getElementById("getanswer2").innerHTML = 'Sonuç : ' + total;
-
                     break;
                 case 3:
                     let thirdcode = "let limit = 100; <br> let phi = []; <br> let sum = 0; <br>for (let i = 0; i <= limit; i++) { <br>phi.push(i);<br> }<br>for (let i = 2; i <= limit; i++) {<br>  if (phi[i] === i) {<br>  for (let j = i; j <= limit; j += i) {<br>phi[j] = phi[j] / i * (i - 1);<br>}<br>}<br>sum += phi[i];<br>}"
@@ -137,7 +135,6 @@
                     for (let i = 0; i <= limit; i++) {
                         phi.push(i);
                     }
-
                     for (let i = 2; i <= limit; i++) {
                         if (phi[i] === i) {
                             for (let j = i; j <= limit; j += i) {
@@ -202,10 +199,6 @@
                 default:
                     break;
             }
-        }
-
-        function soru1(params) {
-
         }
     </script>
 </body>
