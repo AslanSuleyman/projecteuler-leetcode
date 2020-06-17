@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            height: -webkit-fill-available;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            height: 125px;
+            width: 125px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #54d1b0;
+            color: white;
+            margin-left: 5%;
+            -webkit-box-shadow: -1px -1px 7px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: -1px -1px 7px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: -1px -1px 7px 0px rgba(0, 0, 0, 0.75);
+        }
+
+        .answer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column
+        }
+
+        .answer-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+            background-color: azure;
+            border: 1px solid black;
+            width: 500px;
+            height: auto;
+        }
+
+        .answer-box2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: azure;
+            border: 1px solid black;
+            width: 500px;
+            height: 30px;
+        }
+
+        .box:active {
+            -webkit-box-shadow: -1px -4px 7px -6px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: -1px -4px 7px -6px rgba(0, 0, 0, 0.75);
+            box-shadow: -1px -4px 7px -6px rgba(0, 0, 0, 0.75);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="box" onclick="solve(1)">1.Soru Çözümü </div>
+            <div class="box" onclick="solve(2)">2.Soru Çözümü </div>
+            <div class="box" onclick="solve(3)">3.Soru Çözümü </div>
+            <div class="box" onclick="solve(4)">4.Soru Çözümü </div>
+            <div class="box" onclick="solve(5)">5.Soru Çözümü </div>
+        </div>
+
+        <div class="answer">
+            <div id="getanswer" class="answer-box"></div>
+            <div id="getanswer2" class="answer-box2"></div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function solve(id) {
+            switch (id) {
+                case 1:
+                    let firstcode = " <br>let num = 14;<br> var steps = 0;<br>while (num != 0) {<br>if (num % 2 == 0) {<br>num = num / 2<br>} else {<br>  num = num - 1<br>}<br> steps++;<br>}"
+                    document.getElementById("getanswer").innerHTML = firstcode;
+                    let num = 14;
+                    var steps = 0;
+                    while (num != 0) {
+                        if (num % 2 == 0) {
+                            num = num / 2
+                        } else {
+                            num = num - 1
+                        }
+                        steps++;
+                    }
+                    document.getElementById("getanswer2").innerHTML = 'Sonuç : ' + steps;
+                    break;
+                case 2:
+                    let secondcode = "for (let index = 0; index < array.length; index++) {<br>array[index] = array[index].reverse();<br>}<br>array.forEach(element => {<br>for (let j = 0; j < element.length; j++) {<br>switch (element[j]) {<br>case 1:<br>element[j] = 0<br>break;<br>case 0:<br> element[j] = 1<br>break;<br> }} <br>});"
+                    document.getElementById("getanswer").innerHTML = secondcode;
+                    array = [[1, 1, 0], [1, 0, 1], [0, 0, 0]]
+                    for (let index = 0; index < array.length; index++) {
+                        array[index] = array[index].reverse();
+                    }
+                    array.forEach(element => {
+                        for (let j = 0; j < element.length; j++) {
+                            switch (element[j]) {
+                                case 1:
+                                    element[j] = 0
+                                    break;
+                                case 0:
+                                    element[j] = 1
+                                    break;
+                            }
+                        }
+                    });
+                    document.getElementById("getanswer2").innerHTML = 'Sonuç : ' + array;
+                    break;
+                case 3:
+                    let thirdcode = "let sum = 0;<br>  let topround = [];<br>for (let operation of ops) {<br>switch (operation) {<br>case '+':<br>topround.push <br>(topround[topround.length - 1] + topround[topround.length - 2]);<br>  break;<br> case 'D':<br>topround.push(topround[topround.length - 1] * 2);<br> break;<br> case 'C':<br> topround.pop();<br> break;<br>default:<br> topround.push(parseInt(operation));<br> break;<br> }}"
+                    document.getElementById("getanswer").innerHTML = thirdcode;
+                    let ops = ["5","2","C","D","+"]
+                    let sum = 0;
+                    let topround = [];
+                    for (let operation of ops) {
+                        switch (operation) {
+                            case '+':
+                                topround.push(topround[topround.length - 1] + topround[topround.length - 2]);
+                                break;
+                            case 'D':
+                                topround.push(topround[topround.length - 1] * 2);
+                                break;
+                            case 'C':
+                                topround.pop();
+                                break;
+                            default:
+                                topround.push(parseInt(operation));
+                                break;
+                        }
+                    }
+                    document.getElementById("getanswer2").innerHTML = 'Sonuç : ' + topround.reduce((acc, cur) => acc + cur);;
+                    break;
+                case 4:
+                    let fourthcode = " let s= 'anagram'; let t ='nagaram' <br>if(s.split('').sort().join('') === t.split('').sort().join('')){ <br>return true <br> }<br>"
+                    document.getElementById("getanswer").innerHTML = fourthcode ; 
+                    let s= "anagram"; let t ="nagaram"
+                     if(s.split("").sort().join("") === t.split("").sort().join("")){
+                        document.getElementById("getanswer2").innerHTML = 'Sonuç : ' + 'Harfler Aynı';
+                     }
+                     
+                    break;
+                case 5:
+                     let fifthcode = "const n = 15;  let dizi = [];<br> for (let i = 1; i <= n; i++) {<br>if (i % 15 ===0) {<br>   dizi.push('FizzBuzz'); <br>}else if(i % 3 === 0){<br>dizi.push('Fizz');<br> }else if(i % 5 === 0 ){<br>  dizi.push('Buzz');<br>  }else {<br>  dizi.push(i);<br> }}"
+                     document.getElementById("getanswer").innerHTML = fifthcode ; 
+                     const n = 15
+                     let dizi = [];
+                     for (let i = 1; i <= n; i++) {
+                        if (i % 15 ===0) {
+                            dizi.push('FizzBuzz');
+                        }else if(i % 3 === 0){
+                            dizi.push('Fizz');
+                        }else if(i % 5 === 0 ){
+                            dizi.push('Buzz');
+                        }else {
+                            dizi.push(i);
+                        }}
+                        document.getElementById("getanswer2").innerHTML = 'Sonuç : ' + dizi;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        function soru1(params) {
+
+        }
+    </script>
+</body>
+
+</html>

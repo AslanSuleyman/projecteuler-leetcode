@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            height: -webkit-fill-available;
+        }
+
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box {
+            height: 125px;
+            width: 125px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #54d1b0;
+            color: white;
+            margin-left: 5%;
+            -webkit-box-shadow: -1px -1px 7px 0px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: -1px -1px 7px 0px rgba(0, 0, 0, 0.75);
+            box-shadow: -1px -1px 7px 0px rgba(0, 0, 0, 0.75);
+        }
+
+        .answer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column
+        }
+
+        .answer-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 100px;
+            background-color: azure;
+            border: 1px solid black;
+            width: 500px;
+            height: auto;
+        }
+
+        .answer-box2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: azure;
+            border: 1px solid black;
+            width: 500px;
+            height: 30px;
+        }
+
+        .box:active {
+            -webkit-box-shadow: -1px -4px 7px -6px rgba(0, 0, 0, 0.75);
+            -moz-box-shadow: -1px -4px 7px -6px rgba(0, 0, 0, 0.75);
+            box-shadow: -1px -4px 7px -6px rgba(0, 0, 0, 0.75);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="box" onclick="solve(1)">1.Soru Çözümü </div>
+            <div class="box" onclick="solve(2)">2.Soru Çözümü </div>
+            <div class="box" onclick="solve(3)">3.Soru Çözümü </div>
+            <div class="box" onclick="solve(4)">4.Soru Çözümü </div>
+            <div class="box" onclick="solve(5)">5.Soru Çözümü </div>
+        </div>
+
+        <div class="answer">
+            <div id="getanswer" class="answer-box"></div>
+            <div id="getanswer2" class="answer-box2"></div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function solve(id) {
+            switch (id) {
+                case 1:
+                    let firstcode = " let fib = [1, 2]; <br> let eventNum = []; <br>  for (let index = 0; index < 100; index++) { <br>    if (true)     <br>  fib.push(fib[fib.length - 1] + fib[fib.length - 2])     <br>    }   <br> fib.forEach(element => {     <br>       if (element % 2 == 0) {   <br>       eventNum.push(element);    <br>   }     <br>  })   console.log(eventNum); <br> "
+                    document.getElementById("getanswer").innerHTML = firstcode;
+                    let fib = [1, 2];
+                    let eventNum = [];
+                    for (let index = 0; index < 100; index++) {
+                        if (true)
+                            fib.push(fib[fib.length - 1] + fib[fib.length - 2])
+                    }
+                    fib.forEach(element => {
+                        if (element % 2 == 0) {
+                            eventNum.push(element);
+                        }
+                    })
+                    if (eventNum.length > 10) {
+                        document.getElementById("getanswer2").innerHTML = 'Sonuç : ' + eventNum.slice(0, 10) + ' ....';
+                    }
+
+                    break;
+                case 2:
+                    let secondcode = "arr =  [ 'aslan', 'suleyman' , 'test'] <br>   arr.unshift(0); <br>   arr = arr.sort();<br>  function nameScoreCalc(word, i) {<br>   let sum = 0;<br> let score;<br>let alfabe = ['' , 'a','b','c','d','e','f', 'g','i','j','k','l','m','n','o' <br>,'p','q','r','s','t','u','v','w','x','y','z']; <br> for (let i = 0; i < word.length; i++) { <br>   sum+= alpha.indexOf(word[i].toLowerCase()); <br>  }<br> let total = 0;<br>for (let i = 0; i < arr.length; i++) { <br>   total += nameScoreCalc(arr[i], i) <br>  } "
+                    document.getElementById("getanswer").innerHTML = secondcode;
+                    arr = ['aslan', 'suleyman', 'test']
+                    arr.unshift(0);
+                    arr = arr.sort();
+                    function nameScoreCalc(word, i) {
+                        let sum = 0;
+                        let score;
+                        let alpha = [" ", "a", "b", "c", "d", "e", "f", "g", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+                        for (let i = 0; i < word.length; i++) {
+                            sum += alpha.indexOf(word[i].toLowerCase());
+                        }
+                        return sum * i
+                    }
+                    let total = 0;
+                    for (let i = 0; i < arr.length; i++) {
+                        total += nameScoreCalc(arr[i], i)
+                    }
+                    document.getElementById("getanswer2").innerHTML = 'Sonuç : ' + total;
+
+                    break;
+                case 3:
+                    let thirdcode = "let limit = 100; <br> let phi = []; <br> let sum = 0; <br>for (let i = 0; i <= limit; i++) { <br>phi.push(i);<br> }<br>for (let i = 2; i <= limit; i++) {<br>  if (phi[i] === i) {<br>  for (let j = i; j <= limit; j += i) {<br>phi[j] = phi[j] / i * (i - 1);<br>}<br>}<br>sum += phi[i];<br>}"
+                    document.getElementById("getanswer").innerHTML = thirdcode;
+                    let limit = 100;
+                    let phi = [];
+                    let sum = 0;
+                    for (let i = 0; i <= limit; i++) {
+                        phi.push(i);
+                    }
+
+                    for (let i = 2; i <= limit; i++) {
+                        if (phi[i] === i) {
+                            for (let j = i; j <= limit; j += i) {
+                                phi[j] = phi[j] / i * (i - 1);
+                            }
+                        }
+                        sum += phi[i];
+                    }
+                    document.getElementById("getanswer2").innerHTML = 'Sonuç : ' + sum;
+                    break;
+                case 4:
+                    let fourthcode = "function tau(num) {<br>var n = num; var i = 2; var p = 1;<br>if (num === 1) return 1;<br>while (i * i <= n) {<br>var c = 1;<br> while (n % i === 0) {<br>   n /= i;<br>  c++;}<br> i++;<br>p *= c; }<br>if (n === num || n > 1)<br> p *= 1 + 1;<br> return p; }<br>  function solution(x) {<br>  var n = 1;  var d = 1;<br>while (tau(d) <= x) {<br> n++;<br>d += n;}<br>  console.log(d);}<br>solution(500);"
+                    document.getElementById("getanswer").innerHTML = fourthcode;
+                    function tau(num) {
+                        var n = num; var i = 2; var p = 1;
+                        if (num === 1) return 1;
+                        while (i * i <= n) {
+                            var c = 1;
+                            while (n % i === 0) {
+                                n /= i;
+                                c++;
+                            }
+                            i++;
+                            p *= c;
+                        }
+                        if (n === num || n > 1)
+                            p *= 1 + 1;
+                        return p;
+                    }
+                    function solution(x) {
+                        var n = 1; var d = 1;
+                        while (tau(d) <= x) {
+                            n++;
+                            d += n;
+                        }
+                        document.getElementById("getanswer2").innerHTML = 'Sonuç : ' + d;
+                    }
+                    solution(500);
+                    break;
+                case 5:
+                    let fifthcode = "function isPandigital(n) {<br> var m = 0;<br>  for (var i = 0; n > 0; i++) {<br>  m |= 1 << n % 10;<br> n = n / 10 | 0;   }<br>  return 2 + m === 1 << (i + 1); }<br> var products = new Set;<br>function sumRange(m0, mn, n0, nn) {<br> for (var m = m0; m <= mn; m++) {<br> for (var n = n0; n <= nn; n++) {<br> var x = m * n;<br> var p = Number('' + m + n + x);<br>  if (isPandigital(p)) {<br> products.add(x);<br> }   }     }     }<br>sumRange(1, 9, 1234, 9876);<br>sumRange(12, 98, 123, 987);"
+                    document.getElementById("getanswer").innerHTML = fifthcode;
+                    function isPandigital(n) {
+                        var m = 0;
+                        for (var i = 0; n > 0; i++) {
+                            m |= 1 << n % 10;
+                            n = n / 10 | 0;   }
+                        return 2 + m === 1 << (i + 1); }
+                    var products = new Set;
+                    function sumRange(m0, mn, n0, nn) {
+                        for (var m = m0; m <= mn; m++) {
+                            for (var n = n0; n <= nn; n++) {
+                                var x = m * n;
+                                var p = Number("" + m + n + x);
+                                if (isPandigital(p)) {
+                                    products.add(x);
+                                }   }     }     }
+                    sumRange(1, 9, 1234, 9876);
+                    sumRange(12, 98, 123, 987);
+                    document.getElementById("getanswer2").innerHTML = 'Sonuç : ' + [...products].reduce((a, b) => a + b, 0); 
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        function soru1(params) {
+
+        }
+    </script>
+</body>
+
+</html>
